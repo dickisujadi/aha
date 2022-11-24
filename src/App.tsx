@@ -7,9 +7,9 @@ import { Tags } from './pages/Tags';
 
 function App() {
   return (
-    <div className="App flex flex-row">
-      <Sidebar />
+    <div className="App flex xs:flex-col">
       <Router>
+        <Sidebar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/tags' element={<Tags />} />
