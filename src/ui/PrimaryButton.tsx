@@ -1,9 +1,15 @@
 import Button from "@mui/material/Button";
 
-function PrimaryButton({ content } : { content : string}) {
+interface primaryButtonProps {
+    content : string,
+    onButtonClick() : void
+}
+
+function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
     return (
         <div className="w-full">
             <Button
+                onClick={() => {onButtonClick()}}
                 // style={{
                 //     borderRadius: 35,
                 //     backgroundColor: "#21b6ae",
@@ -12,7 +18,7 @@ function PrimaryButton({ content } : { content : string}) {
                 // }}
                 variant="contained"
                 fullWidth
-                >
+            >
                 {content.toUpperCase()}
             </Button>
         </div>
