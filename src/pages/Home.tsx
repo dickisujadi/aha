@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { User } from "../typings"
+import PrimaryButton from "../ui/PrimaryButton";
 import SearchBar from "../ui/SearchBar";
 import SliderComponent from "../ui/SliderComponent";
 
@@ -47,7 +48,7 @@ export function Home() {
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
 
                 <div className="flex flex-row">
-                    <p className="text-5xl text-left leading-[4.5rem]">30 <span className="text-base leading-6">results</span></p>
+                    <p className="text-5xl text-left leading-[4.5rem] font-bold">30 <span className="text-base leading-6 font-normal gap-2">results</span></p>
                 </div>
 
                 <div>
@@ -55,7 +56,7 @@ export function Home() {
                 </div>
 
                 <div>
-                    {/* search button */}
+                    <PrimaryButton content="search"/>
                 </div>
 
             </div>
