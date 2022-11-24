@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { User } from "../typings"
 import SearchBar from "../ui/SearchBar";
+import SliderComponent from "../ui/SliderComponent";
 
 interface UserProps {
     total : number,
@@ -36,7 +37,7 @@ export function Home() {
     return (
         <div className="flex flex-row w-full h-fit">
 
-            <div className="mx-[8.125rem] mt-[2.125rem] w-8/12">
+            <div className="mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
 
                 <div>
@@ -46,11 +47,11 @@ export function Home() {
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
 
                 <div className="flex flex-row">
-                    <p>30 results</p>
+                    <p className="text-5xl text-left leading-[4.5rem]">30 <span className="text-base leading-6">results</span></p>
                 </div>
 
                 <div>
-                    {/* slider */}
+                    <SliderComponent />
                 </div>
 
                 <div>
