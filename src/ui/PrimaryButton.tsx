@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 
-interface primaryButtonProps {
+interface PrimaryButtonProps {
     content : string,
     onButtonClick? :() => void
 }
 
-function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
+function PrimaryButton({ content, onButtonClick } : PrimaryButtonProps) {
     return (
         <div className="w-full h-full">
             <Button

@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 
-interface containedButtonProps {
+interface ContainedButtonProps {
     content : string,
     onButtonClick? :() => void
 }
 
-function ContainedButton({ content, onButtonClick } : containedButtonProps) {
+function ContainedButton({ content, onButtonClick } : ContainedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button

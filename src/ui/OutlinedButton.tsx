@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 
-interface outlinedButtonProps {
+interface OutlinedButtonProps {
     content : string,
     onButtonClick? :() => void
 }
 
-function OutlinedButton({ content, onButtonClick } : outlinedButtonProps) {
+function OutlinedButton({ content, onButtonClick } : OutlinedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button
