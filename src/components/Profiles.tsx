@@ -7,10 +7,10 @@ interface ProfilesProps {
 
 export function Profiles({users} : ProfilesProps) {
     return (
-        <div className="mt-4">
+        <div className="mt-4 w-full">
             {users && users.length ? users.map(user => {
                 return (
-                    <div className="mt-4">
+                    <div className="mt-4" key={`${user.id}_${user.name}`}>
                         <UserCard user={user}/>
                     </div>
                 )

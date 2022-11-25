@@ -8,20 +8,14 @@ import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
 import Tabs from "@mui/material/Tabs";
 
-interface UserProps {
-    total : number,
-    totalPages : number,
-    page : number,
-    pageSize : number,
-    data: User[]
-}
-
 export function Home() {
-    const [activeTabIndex, setActiveTabIndex] = useState<number>(0)
+    const [activeTabIndex, setActiveTabIndex] = useState<string>('0')
 
     const [users, setUsers] = useState<User[]>([])
 
     const updateUsers = (url : string) => {
+        console.log(`trace called`);
+        
         fetch(`${url}`)
         .then(result => result.json())
         .then((result) => {
@@ -31,7 +25,7 @@ export function Home() {
 
     useEffect(() => {
         switch (activeTabIndex) {
-            case 1:
+            case '1':
                 updateUsers(requests.fetchFollowing);
                 break;
         
@@ -39,22 +33,15 @@ export function Home() {
                 updateUsers(requests.fetchFollowers);
                 break;
         }
-    }, []);
+        return (() => {})
+    }, [activeTabIndex]);
 
     const searchHandler = () => {
         console.log('Search Handler Clicked');
     }
 
-    const tabChangeHandler = (event: React.SyntheticEvent, newValue: number) => {
-        setActiveTabIndex(newValue);
-        switch (newValue) {
-            case 0:
-                updateUsers(requests.fetchFollowers);
-                break;
-            case 1:
-                updateUsers(requests.fetchFollowing);
-                break;
-        }
+    const tabChangeHandler = (event: React.SyntheticEvent, newValue: string) => {
+        setActiveTabIndex(currentIndex => newValue)
     };
 
     return (
@@ -87,7 +74,7 @@ export function Home() {
 
 
 
-            <div className="hidden 2xl:block">
+            <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block">
                 <Tabs
                     value={activeTabIndex}
                     onChange={tabChangeHandler}
@@ -95,8 +82,8 @@ export function Home() {
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example"
                 >
-                    <Tab label="Followers" value={0}/>
-                    <Tab label="Following" value={1}/>
+                    <Tab label="Followers" value={'0'}/>
+                    <Tab label="Following" value={'1'}/>
                 </Tabs>
                 <Profiles users={users} />
             </div>
