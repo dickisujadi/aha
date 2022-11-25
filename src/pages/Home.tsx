@@ -19,14 +19,6 @@ interface UserProps {
 export function Home() {
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0)
 
-    const initalUsers : UserProps = {
-        total : 0,
-        totalPages : 0,
-        page : 0,
-        pageSize : 0,
-        data: []
-    }
-
     const [users, setUsers] = useState<User[]>([])
 
     const updateUsers = (url : string) => {
