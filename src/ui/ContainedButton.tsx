@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 
-interface primaryButtonProps {
+interface containedButtonProps {
     content : string,
     onButtonClick? :() => void
 }
 
-function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
+function ContainedButton({ content, onButtonClick } : containedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button
@@ -19,10 +19,10 @@ function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
                 variant="contained"
                 fullWidth
             >
-                {content.toUpperCase()}
+                <p className="capitalize text-xs">{content}</p> 
             </Button>
         </div>
     )
 }
 
-export default PrimaryButton;
+export default ContainedButton;

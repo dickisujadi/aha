@@ -3,12 +3,10 @@ import { User } from "../typings"
 import PrimaryButton from "../ui/PrimaryButton";
 import SearchBar from "../ui/SearchBar";
 import SliderComponent from "../ui/SliderComponent";
-import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import requests from "../utilities/requests";
+import { Profiles } from "../components/Profiles";
+import Tabs from "@mui/material/Tabs";
 
 interface UserProps {
     total : number,
@@ -19,7 +17,7 @@ interface UserProps {
 }
 
 export function Home() {
-    const [activeTabIndex, setActiveTabIndex] = useState('1')
+    const [activeTabIndex, setActiveTabIndex] = useState<number>(0)
 
     const initalUsers : UserProps = {
         total : 0,
@@ -41,7 +39,7 @@ export function Home() {
 
     useEffect(() => {
         switch (activeTabIndex) {
-            case '2':
+            case 1:
                 updateUsers(requests.fetchFollowing);
                 break;
         
@@ -55,24 +53,17 @@ export function Home() {
         console.log('Search Handler Clicked');
     }
 
-    const tabChangeHandler = (event: React.SyntheticEvent, newValue: string) => {
+    const tabChangeHandler = (event: React.SyntheticEvent, newValue: number) => {
         setActiveTabIndex(newValue);
         switch (newValue) {
-            case '1':
+            case 0:
                 updateUsers(requests.fetchFollowers);
                 break;
-            case '2':
+            case 1:
                 updateUsers(requests.fetchFollowing);
-                break;
-            default:
-                updateUsers(requests.fetchFollowers);
                 break;
         }
     };
-
-    useEffect(() => {
-        console.log(users);
-    }, [users])
 
     return (
         <div className="flex flex-row w-full h-fit">
@@ -105,16 +96,17 @@ export function Home() {
 
 
             <div className="hidden 2xl:block">
-            <TabContext value={activeTabIndex}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={tabChangeHandler} aria-label="lab API tabs example">
-                    <Tab label="Followers" value="1"/>
-                    <Tab label="Following" value="2" />
-                </TabList>
-                </Box>
-                <TabPanel value="1">Item One</TabPanel>
-                <TabPanel value="2">Item Two</TabPanel>
-            </TabContext>
+                <Tabs
+                    value={activeTabIndex}
+                    onChange={tabChangeHandler}
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    aria-label="scrollable auto tabs example"
+                >
+                    <Tab label="Followers" value={0}/>
+                    <Tab label="Following" value={1}/>
+                </Tabs>
+                <Profiles users={users} />
             </div>
 
         </div>

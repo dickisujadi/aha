@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 
-interface primaryButtonProps {
+interface outlinedButtonProps {
     content : string,
     onButtonClick? :() => void
 }
 
-function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
+function OutlinedButton({ content, onButtonClick } : outlinedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button
@@ -16,13 +16,13 @@ function PrimaryButton({ content, onButtonClick } : primaryButtonProps) {
                 //     padding: "18px 36px",
                 //     fontSize: "18px"
                 // }}
-                variant="contained"
+                variant="outlined"
                 fullWidth
             >
-                {content.toUpperCase()}
+                <p className="capitalize text-xs">{content}</p> 
             </Button>
         </div>
     )
 }
 
-export default PrimaryButton;
+export default OutlinedButton;
