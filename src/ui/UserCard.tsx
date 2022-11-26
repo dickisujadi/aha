@@ -9,7 +9,7 @@ interface UserCardProps {
 function UserCard({ user } : UserCardProps) {
     return (
         <div className="w-full mt-[0.1875rem] mb-[0.125rem] mx-0 flex flex-row">
-            <div className="w-[19.2%] h-10 mx-4">
+            <div className="w-[20%] h-fit mx-4">
                 <div className="w-10 h-10 bg-white"></div>
                 {/* <img 
                     src={`${user.avater}`} 
@@ -20,11 +20,11 @@ function UserCard({ user } : UserCardProps) {
                     }}
                 /> */}
             </div>
-            <div className="w-[51.733%] flex flex-col">
+            <div className="w-[50%] flex flex-col">
                 <p className="text-left text-base">{user.name}</p>
                 <p className="text-left text-sm opacity-50">{`@${user.username}`}</p>
             </div>
-            <div className="w-[29.0667%] mx-4 my-auto">
+            <div className="w-[30%] mx-4 my-auto">
                 {user.isFollowing ? <ContainedButton content="Following" position="right"/> :
                     <OutlinedButton content="Follow" position="right"/>}
             </div>

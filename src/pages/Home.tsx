@@ -87,17 +87,7 @@ export function Home() {
 
 
             <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block">
-                <Tabs
-                    value={activeTabIndex}
-                    onChange={tabChangeHandler}
-                    variant="scrollable"
-                    scrollButtons="auto"
-                    aria-label="scrollable auto tabs example"
-                >
-                    <Tab label="Followers" value={'0'}/>
-                    <Tab label="Following" value={'1'}/>
-                </Tabs>
-                <Profiles users={users} />
+                <Profiles users={users} tabIndex={activeTabIndex} onChange={tabChangeHandler} />
             </div>
 
         </div>
