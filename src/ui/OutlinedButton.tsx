@@ -1,25 +1,33 @@
 import Button from "@mui/material/Button";
+import { COLORS } from "../constants/colors";
 
 interface OutlinedButtonProps {
     content : string,
-    onButtonClick? :() => void
+    onButtonClick? :() => void,
+    position? : string
 }
 
-function OutlinedButton({ content, onButtonClick } : OutlinedButtonProps) {
+function OutlinedButton({ content, onButtonClick, position } : OutlinedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button
+                className={`float-right`}
                 onClick={() => {onButtonClick?.()}}
-                // style={{
-                //     borderRadius: 35,
-                //     backgroundColor: "#21b6ae",
-                //     padding: "18px 36px",
-                //     fontSize: "18px"
-                // }}
                 variant="outlined"
-                fullWidth
+                sx={{
+                    borderRadius: '1.25rem',
+                    border: 1,
+                    color: COLORS.pb_white,
+                    borderColor: COLORS.pb_white,
+                    backgroundColor: COLORS.pb_black,
+                    ":hover" : {
+                        color: COLORS.pb_black,
+                        borderColor: COLORS.pb_black,
+                        backgroundColor: COLORS.pb_white,
+                    }
+                }}
             >
-                <p className="capitalize text-xs">{content}</p> 
+                <p className="capitalize text-xs leading-none font-semibold flex-none text-center my-[.375rem]">{content}</p> 
             </Button>
         </div>
     )

@@ -1,43 +1,42 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+interface SliderComponentProps {
+  onSliderChange: (value:number | number[]) => void
+}
 
 const marks = [
   {
-    value: 10,
+    value: 3,
     label: '3',
   },
   {
-    value: 20,
+    value: 6,
     label: '6',
   },
   {
-    value: 40,
+    value: 9,
     label: '9',
   },
   {
-    value: 60,
+    value: 12,
     label: '12',
   },
   {
-    value: 100,
+    value: 15,
+    label: '15',
+  },
+  {
+    value: 50,
     label: '50',
   },
 ];
 
-function valuetext(value: number) {
-  return `${value}`;
-}
-
-function SliderComponent() {
+function SliderComponent( { onSliderChange } : SliderComponentProps ) {
   return (
       <Slider
-        aria-label="Always visible"
-        defaultValue={0}
-        getAriaValueText={valuetext}
-        step={10}
-        // marks={marks}
-        valueLabelDisplay="on"
+        marks={marks}
+        min={3}
+        max={50}
+        onChange={(_, value) => onSliderChange(value)}
       />
   );
 }

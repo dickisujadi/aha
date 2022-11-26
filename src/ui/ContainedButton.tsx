@@ -1,25 +1,34 @@
 import Button from "@mui/material/Button";
+import { COLORS } from "../constants/colors";
 
 interface ContainedButtonProps {
     content : string,
-    onButtonClick? :() => void
+    onButtonClick? :() => void,
+    position? : string
 }
 
-function ContainedButton({ content, onButtonClick } : ContainedButtonProps) {
+function ContainedButton({ content, onButtonClick, position } : ContainedButtonProps) {
     return (
         <div className="w-full h-full">
             <Button
+                className={`float-right`}
                 onClick={() => {onButtonClick?.()}}
-                // style={{
-                //     borderRadius: 35,
-                //     backgroundColor: "#21b6ae",
-                //     padding: "18px 36px",
-                //     fontSize: "18px"
-                // }}
+                sx={{
+                    borderRadius: '1.25rem',
+                    color: COLORS.pb_black,
+                    borderColor: COLORS.pb_white,
+                    backgroundColor: COLORS.pb_white,
+                    ":hover" : {
+                        color: COLORS.pb_white,
+                        border: 1,
+                        borderColor: COLORS.pb_white,
+                        backgroundColor: COLORS.pb_black,
+                    }
+                }}
                 variant="contained"
-                fullWidth
+                
             >
-                <p className="capitalize text-xs">{content}</p> 
+                <p className="capitalize text-xs leading-none font-semibold flex-none text-center my-[.375rem]">{content}</p> 
             </Button>
         </div>
     )

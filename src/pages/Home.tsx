@@ -9,9 +9,9 @@ import { Profiles } from "../components/Profiles";
 import Tabs from "@mui/material/Tabs";
 
 export function Home() {
-    const [activeTabIndex, setActiveTabIndex] = useState<string>('0')
-
-    const [users, setUsers] = useState<User[]>([])
+    const [activeTabIndex, setActiveTabIndex] = useState<string>('0');
+    const [users, setUsers] = useState<User[]>([]);
+    const [pageSize, setPageSize] = useState<number>(3)
 
     const updateUsers = (url : string) => {
         console.log(`trace called`);
@@ -44,6 +44,18 @@ export function Home() {
         setActiveTabIndex(currentIndex => newValue)
     };
 
+    const sliderChangeHandler = (newValue : number | number[]) => {
+        console.log(newValue);
+        if(typeof newValue == "number") {
+            setPageSize(newValue);
+        }
+        // return `${newValue}`
+    }
+
+    useEffect(() => {
+        console.log('traced');   
+    })
+
     return (
         <div className="flex flex-row w-full h-fit">
 
@@ -58,15 +70,15 @@ export function Home() {
                     <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
 
                     <div className="flex flex-row">
-                        <p className="text-5xl text-left leading-[4.5rem] font-bold">30 <span className="text-base leading-6 font-normal gap-2">results</span></p>
+                        <p className="text-5xl text-left leading-[4.5rem] font-bold">{pageSize} <span className="text-base leading-6 font-normal gap-2">results</span></p>
                     </div>
 
                     <div>
-                        <SliderComponent />
+                        <SliderComponent onSliderChange={sliderChangeHandler}/>
                     </div>
                 </div>
 
-                <div>
+                <div className="w-6/12">
                     <PrimaryButton content="search" onButtonClick={searchHandler}/>
                 </div>
 

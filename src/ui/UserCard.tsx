@@ -24,9 +24,9 @@ function UserCard({ user } : UserCardProps) {
                 <p className="text-left text-base">{user.name}</p>
                 <p className="text-left text-sm opacity-50">{`@${user.username}`}</p>
             </div>
-            <div className="w-[29.0667%] mx-4">
-                {user.isFollowing ? <ContainedButton content="Following" /> :
-                    <OutlinedButton content="Follow" />}
+            <div className="w-[29.0667%] mx-4 my-auto">
+                {user.isFollowing ? <ContainedButton content="Following" position="right"/> :
+                    <OutlinedButton content="Follow" position="right"/>}
             </div>
         </div>
     )

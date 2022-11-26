@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import { COLORS } from "../constants/colors";
 
 interface PrimaryButtonProps {
     content : string,
@@ -10,16 +11,22 @@ function PrimaryButton({ content, onButtonClick } : PrimaryButtonProps) {
         <div className="w-full h-full">
             <Button
                 onClick={() => {onButtonClick?.()}}
-                // style={{
-                //     borderRadius: 35,
-                //     backgroundColor: "#21b6ae",
-                //     padding: "18px 36px",
-                //     fontSize: "18px"
-                // }}
                 variant="contained"
                 fullWidth
+                sx={{
+                    borderRadius: '.25rem',
+                    color: COLORS.pb_black,
+                    borderColor: COLORS.pb_white,
+                    backgroundColor: COLORS.pb_white,
+                    ":hover" : {
+                        color: COLORS.pb_white,
+                        border: 1,
+                        borderColor: COLORS.pb_white,
+                        backgroundColor: COLORS.pb_black,
+                    }
+                }}
             >
-                {content.toUpperCase()}
+                <span className="font-bold not-italic text-sm leading-[100%] uppercase mx-4 my-[.40625rem]">{content}</span> 
             </Button>
         </div>
     )
