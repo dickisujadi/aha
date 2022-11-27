@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { User } from "../typings"
 import PrimaryButton from "../ui/PrimaryButton";
 import SearchBar from "../ui/SearchBar";
 import SliderComponent from "../ui/SliderComponent";
-import Tab from '@mui/material/Tab';
 import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
-import Tabs from "@mui/material/Tabs";
 
 export function Home() {
     const [activeTabIndex, setActiveTabIndex] = useState<string>('0');
     const [users, setUsers] = useState<User[]>([]);
-    const [pageSize, setPageSize] = useState<number>(3)
+    const [pageSize, setPageSize] = useState<number>(3);
+    const [keywords, setKeywords] = useState<string>('');
 
     const updateUsers = (url : string) => {
-        console.log(`trace called`);
-        
         fetch(`${url}`)
         .then(result => result.json())
         .then((result) => {
             setUsers(result.data);
         })
-    }
+    };
 
     useEffect(() => {
         switch (activeTabIndex) {
@@ -38,23 +35,28 @@ export function Home() {
 
     const searchHandler = () => {
         console.log('Search Handler Clicked');
-    }
+    };
 
     const tabChangeHandler = (event: React.SyntheticEvent, newValue: string) => {
         setActiveTabIndex(currentIndex => newValue)
     };
 
     const sliderChangeHandler = (newValue : number | number[]) => {
-        console.log(newValue);
         if(typeof newValue == "number") {
             setPageSize(newValue);
         }
-        // return `${newValue}`
-    }
+    };
+
+    const changeKeywordsHandler = (newValue: string) => {
+        setTimeout(() => {
+            setKeywords(currentKeywords => newValue);
+        }, 250);
+    };
 
     useEffect(() => {
-        console.log('traced');   
-    })
+        console.log(keywords);
+        
+    }, [keywords])
 
     return (
         <div className="flex flex-row w-full h-fit">
@@ -63,7 +65,7 @@ export function Home() {
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
 
                 <div>
-                    <SearchBar/>
+                    <SearchBar onChange={changeKeywordsHandler} text={keywords}/>
                 </div>
 
                 <div className="py-[1.875rem] mb-[20.9375rem]">
