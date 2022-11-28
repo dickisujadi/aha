@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tag } from "../typings";
-import TagCard from "../ui/TagCard";
+import TagCard from "../components/TagCard";
 import requests from "../utilities/requests";
 
 export function Tags() {
