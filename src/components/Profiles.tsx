@@ -64,7 +64,7 @@ interface StyledTabProps {
 
 export function Profiles({ users, tabIndex, onChange } : ProfilesProps) {
     return (
-        <div className={`mt-4 w-full bg-[${COLORS.bg_grey}]`}>
+        <div className={`mt-4 w-full h-full bg-[${COLORS.bg_grey}]`}>
             <StyledTabs
                 value={tabIndex}
                 onChange={onChange}

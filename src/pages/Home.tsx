@@ -59,9 +59,9 @@ export function Home() {
     }, [keywords])
 
     return (
-        <div className="flex flex-row w-full h-fit">
+        <div className="flex flex-row h-fit w-screen">
 
-            <div className="mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
+            <div className="mx-5  md:mx-[8.125rem] md:mt-[2.125rem] w-full 2xl:w-8/12">
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
 
                 <div>
@@ -80,7 +80,7 @@ export function Home() {
                     </div>
                 </div>
 
-                <div className="w-6/12">
+                <div className="w-6/12 xs:w-full">
                     <PrimaryButton content="search" onButtonClick={searchHandler}/>
                 </div>
 
@@ -88,7 +88,7 @@ export function Home() {
 
 
 
-            <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block">
+            <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block 2xl:h-screen 2xl:max-h-full 2xl:min-h-full">
                 <Profiles users={users} tabIndex={activeTabIndex} onChange={tabChangeHandler} />
             </div>
 
