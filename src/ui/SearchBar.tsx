@@ -21,9 +21,6 @@ function SearchBar({ onChange }: SearchBarProps) {
         setText({...text, [prop]: event.target.value});
     };
 
-    useEffect(() => {
-        console.log(text);
-    }, [text])
     return (
         <div className='w-full h-full'>
             <FormControl variant="outlined" fullWidth>

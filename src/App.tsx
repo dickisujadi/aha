@@ -10,12 +10,17 @@ function App() {
   return (
     <div className="App flex xs:flex-col w-screen">
       <Router>
-        <Sidebar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/tags' element={<Tags />} />
-          <Route path='/search' element={<Search />} />
-        </Routes>
+        <div className='h-screen w-2/12 xs:h-[4.375rem] xs:w-screen'>
+          <Sidebar />
+        </div>
+
+        <div className='w-10/12'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/tags' element={<Tags />} />
+            <Route path='/search' element={<Search />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

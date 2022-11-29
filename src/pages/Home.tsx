@@ -5,6 +5,7 @@ import SearchBar from "../ui/SearchBar";
 import SliderComponent from "../ui/SliderComponent";
 import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
+import { Link } from "react-router-dom";
 
 export function Home() {
     const [activeTabIndex, setActiveTabIndex] = useState<string>('0');
@@ -53,15 +54,10 @@ export function Home() {
         }, 250);
     };
 
-    useEffect(() => {
-        console.log(keywords);
-        
-    }, [keywords])
-
     return (
         <div className="flex flex-row h-fit w-screen">
 
-            <div className="mx-5  md:mx-[8.125rem] md:mt-[2.125rem] w-full 2xl:w-8/12">
+            <div className="xs:mx-5 sm:mx-5 mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
                 <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
 
                 <div>
@@ -81,7 +77,9 @@ export function Home() {
                 </div>
 
                 <div className="w-6/12 xs:w-full">
-                    <PrimaryButton content="search" onButtonClick={searchHandler}/>
+                    <Link to='/search'>
+                        <PrimaryButton content="search" onButtonClick={searchHandler}/>
+                    </Link>
                 </div>
 
             </div>
