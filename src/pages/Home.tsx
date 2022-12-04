@@ -7,11 +7,19 @@ import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
 import { Link } from "react-router-dom";
 
-export function Home() {
+interface HomeProps {
+    onChangeLoaded: (location: string, status: boolean) => void
+}
+
+export function Home({onChangeLoaded} : HomeProps) {
     const [activeTabIndex, setActiveTabIndex] = useState<string>('0');
     const [users, setUsers] = useState<User[]>([]);
     const [pageSize, setPageSize] = useState<number>(3);
     const [keywords, setKeywords] = useState<string>('');
+
+    useEffect(() => {
+        onChangeLoaded('home', true);
+    }, []);
 
     const updateUsers = (url : string) => {
         fetch(`${url}`)

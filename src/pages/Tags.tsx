@@ -3,7 +3,11 @@ import { Tag } from "../typings";
 import TagCard from "../components/TagCard";
 import requests from "../utilities/requests";
 
-export function Tags() {
+interface TagsProps {
+    onChangeLoaded: (location: string, status: boolean) => void
+}
+
+export function Tags({ onChangeLoaded } : TagsProps) {
     const [tags, setTags] = useState<Tag[]>([])
 
     useEffect(() => {
@@ -11,7 +15,9 @@ export function Tags() {
         .then(result => result.json())
         .then(result => {
             setTags(result);
-        })
+        });
+
+        onChangeLoaded('tags', true);
     }, [])
 
     return (
