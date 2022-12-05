@@ -17,7 +17,7 @@ export default function GetLogo({ location, isLoaded, onChangeIsLoaded }: GetLog
     if(pathname === '/search' && location === 'home') isActive = true;
 
     return (
-        <div className="my-4 min-h-[3rem]">
+        <div className="mb-4 min-h-[3rem]">
             <div className="items-center flex flex-col">
                 {<div className={`h-[0.3125rem] w-[0.3125rem] ${!isLoaded && 'bg-[#00D1FF]'} rounded-full float-right ml-6`}></div>}
                 <img src={isActive? Active : Inactive} alt="active" className="mx-auto"/>
