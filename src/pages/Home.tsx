@@ -44,9 +44,18 @@ export function Home({onChangeLoaded} : HomeProps) {
         return (() => {})
     }, [activeTabIndex]);
 
+    const goSearchHandler = () => {
+        changeHomeActivationHandler();
+    }
+
+    const goHomeHandler = () => {
+        changeHomeActivationHandler();
+        setPageSize(_ => 3);
+        setKeywords('');
+    }
+
     const changeHomeActivationHandler = () => {
-        console.log('Search Handler Clicked');
-        setIsHomeActive(currentState => !currentState)
+        setIsHomeActive(currentState => !currentState);
     };
 
     const tabChangeHandler = (event: React.SyntheticEvent, newValue: string) => {
@@ -91,12 +100,12 @@ export function Home({onChangeLoaded} : HomeProps) {
         
                         <div className="w-6/12 xs:w-full">
                             {/* <Link to='/search'> */}
-                                <PrimaryButton content="search" onButtonClick={changeHomeActivationHandler}/>
+                                <PrimaryButton content="search" onButtonClick={goSearchHandler}/>
                             {/* </Link> */}
                         </div>
                     </>
                 ):
-                <Search onChangePage={changeHomeActivationHandler}/>
+                <Search onChangePage={goHomeHandler} pageSize={pageSize} keywords={keywords}/>
                 }
                 
 

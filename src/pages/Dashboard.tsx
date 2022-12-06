@@ -35,9 +35,8 @@ export function Dashboard() {
         <Router>
             <Sidebar menus={menus} onChangeLoaded={loadedHandler}/>
             <Routes>
-            <Route path='/' element={<Home onChangeLoaded={loadedHandler}/>} />
-            <Route path='/tags' element={<Tags onChangeLoaded={loadedHandler}/>} />
-            <Route path='/search' element={<Search />} />
+                <Route path='/' element={<Home onChangeLoaded={loadedHandler}/>} />
+                <Route path='/tags' element={<Tags onChangeLoaded={loadedHandler}/>} />
             </Routes>
         </Router>
   </div>
