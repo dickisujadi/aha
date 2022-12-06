@@ -22,7 +22,7 @@ export function Sidebar({ menus, onChangeLoaded } : SidebarProps) {
                 Logo
             </div>
             {menus && menus.length && menus.map(menu => {
-                return <div className="xs:hidden block" onClick={() => onChangeLoaded(menu.location, true)}>
+                return <div key={menu.id} className="xs:hidden block" onClick={() => onChangeLoaded(menu.location, true)}>
                     <Link to={menu.link}>
                         <GetLogo location={menu.location} isLoaded={menu.isLoaded}/>
                     </Link>

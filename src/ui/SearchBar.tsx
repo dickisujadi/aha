@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useEffect, useState } from 'react';
@@ -9,6 +10,26 @@ interface SearchBarProps {
     onChange: (newValue: string) => void,
     text? : string
 }
+
+const theme = createTheme({
+    components: {
+      // Inputs
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+                border: `3px solid rgba(255, 255, 255, 0.5)`,
+            },
+            "&.Mui-focused": {
+              "& .MuiOutlinedInput-notchedOutline": {
+                border: `3px solid #FF9B33`
+              },
+            }
+          },
+        }
+      }
+    }
+});
 
 function SearchBar({ onChange }: SearchBarProps) {
     const [text, setText] = useState<StateProps>({
@@ -24,21 +45,22 @@ function SearchBar({ onChange }: SearchBarProps) {
     return (
         <div className='w-full h-full'>
             <FormControl variant="outlined" fullWidth>
-                <OutlinedInput
-                    id="outlined"
-                    onChange={changeHandler('text')}
-                    value={text?.text}
-                    inputProps={{
-                        'aria-label': 'weight',
-                    }}
-                    style={{
-                        border: '3px solid rgba(255, 255, 255, 0.5)',
-                        color: '#FFFFFF',
-                        margin: 0,
-                        borderRadius: 6
-                    }}
-                    placeholder={'Keyword'}
-                />
+                <ThemeProvider theme={theme}>
+                    <OutlinedInput
+                        id="outlined"
+                        onChange={changeHandler('text')}
+                        value={text?.text}
+                        inputProps={{
+                            'aria-label': 'weight',
+                        }}
+                        style={{
+                            color: '#FFFFFF',
+                            margin: 0,
+                            borderRadius: 6
+                        }}
+                        placeholder={'Keyword'}
+                    />
+                </ThemeProvider>
             </FormControl>
         </div>
     )
