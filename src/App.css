@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.MuiSlider-thumb{
+  color: #1B1B1B;
+  box-shadow: none !important;
+  border: #FFD05D .375rem solid;
+}
+.MuiSlider-thumb::before{
+  box-shadow: none !important;
+}
+.MuiSlider-thumb:hover{
+  box-shadow: none !important;
+}
+.MuiSlider-rail{
+  color:#FFFFFF;
+  padding: .25rem 0;
+}
+.MuiSlider-track{
+  background: linear-gradient(90deg, rgba(255,92,1,1) 0%, rgba(255,210,95,1) 100%);
+  padding: .25rem 0;
+}
+.css-1aznpnh-MuiSlider-root{
+  color: #181818 !important;
+}
+.MuiSlider-mark{
+  background-color: unset !important;
+}
+.MuiSlider-markLabel{
+  color: #FFFFFF !important;
+  opacity: 0.5;
+  font-family: 'Ubuntu' !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  line-height: 150% !important;
+  letter-spacing: 0.15px;
+}
+.MuiSlider-markLabelActive{
+  color: #FFFFFF !important;
+  opacity: 1;
+  font-family: 'Ubuntu' !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  line-height: 150% !important;
+  letter-spacing: 0.15px;
+}
