@@ -6,6 +6,7 @@ import SliderComponent from "../ui/SliderComponent";
 import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
 import { Link } from "react-router-dom";
+import { Search } from "./Search";
 
 interface HomeProps {
     onChangeLoaded: (location: string, status: boolean) => void
@@ -16,6 +17,7 @@ export function Home({onChangeLoaded} : HomeProps) {
     const [users, setUsers] = useState<User[]>([]);
     const [pageSize, setPageSize] = useState<number>(3);
     const [keywords, setKeywords] = useState<string>('');
+    const [isHomeActive, setIsHomeActive] = useState<boolean>(true);
 
     useEffect(() => {
         onChangeLoaded('home', true);
@@ -42,8 +44,9 @@ export function Home({onChangeLoaded} : HomeProps) {
         return (() => {})
     }, [activeTabIndex]);
 
-    const searchHandler = () => {
+    const changeHomeActivationHandler = () => {
         console.log('Search Handler Clicked');
+        setIsHomeActive(currentState => !currentState)
     };
 
     const tabChangeHandler = (event: React.SyntheticEvent, newValue: string) => {
@@ -66,29 +69,36 @@ export function Home({onChangeLoaded} : HomeProps) {
         <div className="flex flex-row h-fit w-screen">
 
             <div className="xs:mx-5 sm:mx-5 mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
-                <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
+                {isHomeActive ? (
+                    <>
+                        <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
 
-                <div>
-                    <SearchBar onChange={changeKeywordsHandler} text={keywords}/>
-                </div>
-
-                <div className="py-[1.875rem] mb-[20.9375rem]">
-                    <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
-
-                    <div className="flex flex-row">
-                        <p className="text-5xl text-left leading-[4.5rem] font-bold">{pageSize} <span className="text-base leading-6 font-normal gap-2">results</span></p>
-                    </div>
-
-                    <div>
-                        <SliderComponent onSliderChange={sliderChangeHandler}/>
-                    </div>
-                </div>
-
-                <div className="w-6/12 xs:w-full">
-                    <Link to='/search'>
-                        <PrimaryButton content="search" onButtonClick={searchHandler}/>
-                    </Link>
-                </div>
+                        <div>
+                            <SearchBar onChange={changeKeywordsHandler} text={keywords}/>
+                        </div>
+        
+                        <div className="py-[1.875rem] mb-[20.9375rem]">
+                            <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
+        
+                            <div className="flex flex-row">
+                                <p className="text-5xl text-left leading-[4.5rem] font-bold">{pageSize} <span className="text-base leading-6 font-normal gap-2">results</span></p>
+                            </div>
+        
+                            <div>
+                                <SliderComponent onSliderChange={sliderChangeHandler}/>
+                            </div>
+                        </div>
+        
+                        <div className="w-6/12 xs:w-full">
+                            {/* <Link to='/search'> */}
+                                <PrimaryButton content="search" onButtonClick={changeHomeActivationHandler}/>
+                            {/* </Link> */}
+                        </div>
+                    </>
+                ):
+                <Search onChangePage={changeHomeActivationHandler}/>
+                }
+                
 
             </div>
 
