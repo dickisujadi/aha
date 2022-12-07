@@ -69,9 +69,9 @@ export function Home({onChangeLoaded} : HomeProps) {
     };
 
     const changeKeywordsHandler = (newValue: string) => {
-        setTimeout(() => {
+        // setTimeout(() => {
             setKeywords(currentKeywords => newValue);
-        }, 250);
+        // }, 250);
     };
 
     return (

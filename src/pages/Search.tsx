@@ -64,10 +64,10 @@ export function Search({ onChangePage, keywords, pageSize }: SearchProps) {
     const [data, setData] = useState<User[]>([]);
 
     useEffect(() => {
+        console.log(keywords);
         fetch(`https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=${pageSize}&keyword=${keywords}`)
         .then(result => result.json())
         .then((result) => {
-            console.log(result.data);
             setData(currentData => result.data);
         })
     }, [])

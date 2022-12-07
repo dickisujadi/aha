@@ -31,16 +31,16 @@ const theme = createTheme({
     }
 });
 
-function SearchBar({ onChange }: SearchBarProps) {
-    const [text, setText] = useState<StateProps>({
-        text: ''
-    })
+function SearchBar({ onChange, text }: SearchBarProps) {
+    // const [text, setText] = useState<StateProps>({
+    //     text: ''
+    // })
     
-    const changeHandler = (prop: keyof StateProps) => (
-        event: React.ChangeEvent<HTMLInputElement>
-      ) => {
-        setText({...text, [prop]: event.target.value});
-    };
+    // const changeHandler = (prop: keyof StateProps) => (
+    //     event: React.ChangeEvent<HTMLInputElement>
+    //   ) => {
+    //     setText({...text, [prop]: event.target.value});
+    // };
 
     return (
         <div className='w-full h-full'>
@@ -48,8 +48,8 @@ function SearchBar({ onChange }: SearchBarProps) {
                 <ThemeProvider theme={theme}>
                     <OutlinedInput
                         id="outlined"
-                        onChange={changeHandler('text')}
-                        value={text?.text}
+                        onChange={(event) => {onChange(event.target.value)}}
+                        value={text}
                         inputProps={{
                             'aria-label': 'weight',
                         }}
