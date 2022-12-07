@@ -6,6 +6,7 @@ import dog from "../assets/dog.png";
 import PrimaryButton from "../ui/PrimaryButton";
 import { useEffect, useState } from "react";
 import { User } from "../typings";
+import UserCard from "../ui/UserCardSearch";
 
 interface SearchProps{
     keywords: string,
@@ -79,16 +80,20 @@ export function Search({ onChangePage, keywords, pageSize }: SearchProps) {
                 </div>
                 <h1 className="font-normal text-3xl leading-[2.8125rem] ml-5 text-left">Results</h1>
             </div>
-            <div className="flex flex-row flex-wrap">
+            <div className="flex flex-row -mx-[.8125rem]">
                 {data && data.map(item => {
-                    return <div key={item.id} className="flex flex-col w-1/5 h-fit sm:w-1/5 md:w-1/5 lg:w-1/5 xl:w-1/5 2xl:w-1/5">
-                        <img src={item.avater} alt="dog" />
-                        <h1 className="text-left">This is {item.name}</h1>
-                        <h5 className="text-left">by {item.username}</h5>
-                    </div>
+                    // return <div key={item.id} className="flex flex-col w-1/5 h-fit sm:w-1/5 md:w-1/5 lg:w-1/5 xl:w-1/5 2xl:w-1/5">
+                    //     <img src={item.avater} alt="dog" />
+                    //     <h1 className="text-left">This is {item.name}</h1>
+                    //     <h5 className="text-left">by {item.username}</h5>
+                    // </div>
+                    return <UserCard user={item} key={item.id}/>
                 })}
             </div>
-            <PrimaryButton content="more"/>
+            <div className="w-1/2">
+                <PrimaryButton content="more"/>
+            </div>
+                
         </div>
     )
 }

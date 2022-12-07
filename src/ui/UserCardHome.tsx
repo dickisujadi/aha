@@ -1,6 +1,6 @@
 import { User } from "../typings";
-import ContainedButton from "../ui/ContainedButton";
-import OutlinedButton from "../ui/OutlinedButton";
+import ContainedButton from "./ContainedButton";
+import OutlinedButton from "./OutlinedButton";
 
 interface UserCardProps {
     user: User

@@ -68,11 +68,9 @@ export function Home({onChangeLoaded} : HomeProps) {
         }
     };
 
-    const changeKeywordsHandler = (newValue: string) => {
-        // setTimeout(() => {
-            setKeywords(currentKeywords => newValue);
-        // }, 250);
-    };
+    const changeKeywordsHandler = useCallback((newValue: string) => {
+        setKeywords(currentKeywords => newValue);
+    }, [keywords]);
 
     return (
         <div className="flex flex-row h-fit w-screen">
@@ -99,13 +97,11 @@ export function Home({onChangeLoaded} : HomeProps) {
                         </div>
         
                         <div className="w-6/12 xs:w-full">
-                            {/* <Link to='/search'> */}
-                                <PrimaryButton content="search" onButtonClick={goSearchHandler}/>
-                            {/* </Link> */}
+                            <PrimaryButton content="search" onButtonClick={goSearchHandler}/>
                         </div>
                     </>
                 ):
-                <Search onChangePage={goHomeHandler} pageSize={pageSize} keywords={keywords}/>
+                    <Search onChangePage={goHomeHandler} pageSize={pageSize} keywords={keywords}/>
                 }
                 
 
