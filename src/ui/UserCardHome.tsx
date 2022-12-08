@@ -1,25 +1,20 @@
-import { SyntheticEvent } from "react";
 import { User } from "../typings";
 import ContainedButton from "./ContainedButton";
 import OutlinedButton from "./OutlinedButton";
-import brokenImage from "../assets/broken-image.png";
+import { BrokenImageHandler } from "../utilities/BrokenImageHandler";
 
 interface UserCardProps {
     user: User
 }
 
 function UserCard({ user } : UserCardProps) {
-    const brokenImageHandler = (event: SyntheticEvent<HTMLImageElement, Event>) => {
-        event.currentTarget.src = brokenImage;
-    }
-    
     return (
         <div className="w-full mt-[0.1875rem] mb-[0.125rem] mx-0 flex flex-row">
             <div className="w-[70%] h-fit m-0 flex flex-row">
                 <div className="mx-4 w-10 h-10">
                     <img 
                         src={`${user.avater}`} 
-                        onError={brokenImageHandler}
+                        onError={BrokenImageHandler}
                         alt={`${user.id}_${user.username}`}
                     />
                 </div>

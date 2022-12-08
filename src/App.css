@@ -1,5 +1,4 @@
 :root {
-  --width-height-tagCard-box: 9.375rem;
   --secondary-black: #262626;
 }
 
@@ -143,8 +142,6 @@
 
 .TagCard-Box {
   position: relative;
-  width: var(--width-height-tagCard-box);
-  height: var(--width-height-tagCard-box);
   border-radius: .625rem;
   background-color: var(--secondary-black);
 }
