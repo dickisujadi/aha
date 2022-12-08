@@ -1,3 +1,8 @@
+:root {
+  --width-height-tagCard-box: 9.375rem;
+  --secondary-black: #262626;
+}
+
 .App {
   text-align: center;
 }
@@ -28,41 +33,39 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.MuiSlider-thumb{
+.MuiSlider-thumb {
   color: #1B1B1B;
   box-shadow: none !important;
   border: #FFD05D .375rem solid;
 }
-.MuiSlider-thumb::before{
+
+.MuiSlider-thumb::before {
   box-shadow: none !important;
 }
-.MuiSlider-thumb:hover{
+
+.MuiSlider-thumb:hover {
   box-shadow: none !important;
 }
-.MuiSlider-rail{
+
+.MuiSlider-rail {
   color:#FFFFFF;
   padding: .25rem 0;
 }
-.MuiSlider-track{
+
+.MuiSlider-track {
   background: linear-gradient(90deg, rgba(255,92,1,1) 0%, rgba(255,210,95,1) 100%);
   padding: .25rem 0;
 }
-.css-1aznpnh-MuiSlider-root{
+
+.css-1aznpnh-MuiSlider-root {
   color: #181818 !important;
 }
-.MuiSlider-mark{
+
+.MuiSlider-mark {
   background-color: unset !important;
 }
-.MuiSlider-markLabel{
+
+.MuiSlider-markLabel { 
   color: #FFFFFF !important;
   opacity: 0.5;
   font-family: 'Ubuntu' !important;
@@ -71,7 +74,8 @@
   line-height: 150% !important;
   letter-spacing: 0.15px;
 }
-.MuiSlider-markLabelActive{
+
+.MuiSlider-markLabelActive {
   color: #FFFFFF !important;
   opacity: 1;
   font-family: 'Ubuntu' !important;
@@ -79,4 +83,68 @@
   font-size: 1rem !important;
   line-height: 150% !important;
   letter-spacing: 0.15px;
+}
+
+.TagCard-container {
+  min-width: var(--width-height-tagCard-box);
+  width: calc(100% / var(--width-height-tagCard-box));
+  height: fit-content;
+  margin: 1.125rem .75rem;
+}
+
+.TagCard-text {
+  text-align: left;
+  margin: .375rem .75rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 150%;
+  letter-spacing: 0.015625rem;
+}
+
+.TagCard-textBox {
+  width: 85%; 
+  bottom: .875rem;
+  left: .625rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  border-width: 4px;
+  border-radius: 0.375rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  line-height: 2.25rem;
+  position: absolute;
+}
+
+.TagCard-textName {
+  width: 9.375rem;
+  /* font-family: 'Ubuntu'; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: .93125rem;
+  line-height: 150%;
+  letter-spacing: .0087305rem;
+}
+
+.TagCard-textSubName {
+  font-style: normal;
+  font-weight: 400;
+  font-size: .6984375rem;
+  line-height: 150%;
+  letter-spacing: .02328125rem;
+  color: #B2B2B2;
+}
+
+.TagCard-textWrap {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.TagCard-Box {
+  position: relative;
+  width: var(--width-height-tagCard-box);
+  height: var(--width-height-tagCard-box);
+  border-radius: .625rem;
+  background-color: var(--secondary-black);
 }
