@@ -5,7 +5,6 @@ import SearchBar from "../ui/SearchBar";
 import SliderComponent from "../ui/SliderComponent";
 import requests from "../utilities/requests";
 import { Profiles } from "../components/Profiles";
-import { Link } from "react-router-dom";
 import { Search } from "./Search";
 import { Header } from "../components/Header";
 

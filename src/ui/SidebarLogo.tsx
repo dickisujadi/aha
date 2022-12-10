@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Active from "./../assets/active.svg";
 import Inactive from "./../assets/inactive.svg";

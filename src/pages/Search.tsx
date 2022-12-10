@@ -6,7 +6,7 @@ import dog from "../assets/dog.png";
 import PrimaryButton from "../ui/PrimaryButton";
 import { useEffect, useState } from "react";
 import { User } from "../typings";
-import UserCard from "../ui/UserCardSearch";
+import UserCard, { UserCardLoading } from "../ui/UserCardSearch";
 
 interface SearchProps{
     keywords: string,
@@ -27,7 +27,15 @@ export function Search({ onChangePage, keywords, pageSize }: SearchProps) {
     }, []);
 
     const moreHandler = () => {
-        setDataPerPage(currentNumber => currentNumber + 9)
+        setDataPerPage(currentNumber => currentNumber + 1)
+    }
+
+    const loadingHandler = () => {
+        let result = []
+        for (let i = 0; i < dataPerPage; i++) {
+            result.push(<UserCardLoading />)
+        }
+        return <>{result}</>
     }
 
     return (
@@ -39,9 +47,11 @@ export function Search({ onChangePage, keywords, pageSize }: SearchProps) {
                 <h1 className="font-normal text-3xl leading-[2.8125rem] ml-5 text-left Xs-text">Results</h1>
             </div>
             <div className="flex flex-row -mx-[.8125rem] flex-wrap">
-                {data && data.slice(0, dataPerPage).map(item => {
-                    return <UserCard user={item} key={item.id}/>
-                })}
+                {data ? data.slice(0, dataPerPage).map((item: User) => {
+                    return <UserCard key={item.id} user={item}/>
+                }):
+                    loadingHandler()
+                }
             </div>
             <div className="w-1/2">
                 <PrimaryButton content="more" onButtonClick={moreHandler}/>

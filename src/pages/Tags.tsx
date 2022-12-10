@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { Tag } from "../typings";
-import TagCard from "../ui/TagCard";
+import TagCard, { TagCardLoading } from "../ui/TagCard";
 import requests from "../utilities/requests";
 
 interface TagsProps {
@@ -30,7 +30,11 @@ export function Tags({ onChangeLoaded } : TagsProps) {
                     return <div className="TagCard-container" key={`${data.id}_${data.name}`}>
                         <TagCard tag={data} key={data.id} />
                     </div>
-                }): ''}
+                }):
+                    <div className="TagCard-container">
+                        <TagCardLoading />
+                    </div>
+                }
             </div>
 
         </div>

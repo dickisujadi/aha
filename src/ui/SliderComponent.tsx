@@ -37,6 +37,7 @@ function SliderComponent( { onSliderChange } : SliderComponentProps ) {
         min={3}
         max={50}
         onChange={(_, value) => onSliderChange(value)}
+        track={false}
       />
   );
 }

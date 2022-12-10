@@ -56,7 +56,6 @@ interface StyledTabProps {
         maxWidth: '50%'
     },
     '&.Mui-focusVisible': {
-        // backgroundColor: 'rgba(100, 95, 228, 0.32)',
         width: '50%',
         maxWidth: '50%'
     },

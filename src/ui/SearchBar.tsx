@@ -1,7 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { useEffect, useState } from 'react';
 
 interface StateProps {
     text: string
@@ -13,12 +12,19 @@ interface SearchBarProps {
 
 const theme = createTheme({
     components: {
-      // Inputs
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
+            color: '#FFFFFF',
+            margin: 0,
+            borderRadius: 6,
             "& .MuiOutlinedInput-notchedOutline": {
+              border: `3px solid rgba(255, 255, 255, 0.5)`,
+            },
+            "&:hover": {
+              "& .MuiOutlinedInput-notchedOutline": {
                 border: `3px solid rgba(255, 255, 255, 0.5)`,
+              },
             },
             "&.Mui-focused": {
               "& .MuiOutlinedInput-notchedOutline": {
@@ -32,18 +38,8 @@ const theme = createTheme({
 });
 
 function SearchBar({ onChange, text }: SearchBarProps) {
-    // const [text, setText] = useState<StateProps>({
-    //     text: ''
-    // })
-    
-    // const changeHandler = (prop: keyof StateProps) => (
-    //     event: React.ChangeEvent<HTMLInputElement>
-    //   ) => {
-    //     setText({...text, [prop]: event.target.value});
-    // };
-
     return (
-        <div className='w-full h-full'>
+        <div className='w-full h-[3.75rem]'>
             <FormControl variant="outlined" fullWidth>
                 <ThemeProvider theme={theme}>
                     <OutlinedInput
@@ -52,11 +48,6 @@ function SearchBar({ onChange, text }: SearchBarProps) {
                         value={text}
                         inputProps={{
                             'aria-label': 'weight',
-                        }}
-                        style={{
-                            color: '#FFFFFF',
-                            margin: 0,
-                            borderRadius: 6
                         }}
                         placeholder={'Keyword'}
                     />
