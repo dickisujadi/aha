@@ -21,10 +21,9 @@ export function Tags({ onChangeLoaded } : TagsProps) {
     }, [])
 
     return (
-        <div className="mx-[15.3125rem] mt-[4.625rem] flex flex-col">
+        <div className="TagCard">
             <p className="TagCard-text">Tags</p>
             <div className="flex flex-row flex-wrap">
-                
                 {tags && tags.length ? tags.map(data => {
                     return <div className="TagCard-container" key={`${data.id}_${data.name}`}>
                         <TagCard tag={data} key={data.id} />

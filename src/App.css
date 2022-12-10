@@ -84,6 +84,12 @@
   letter-spacing: 0.15px;
 }
 
+.TagCard {
+  display: flex;
+  flex-direction: column;
+  margin: 4.625rem 15.3125rem 0 15.3125rem;
+}
+
 .TagCard-container {
   min-width: var(--width-height-tagCard-box);
   width: calc(100% / var(--width-height-tagCard-box));
@@ -96,8 +102,8 @@
   margin: .375rem .75rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 1.875rem;
-  line-height: 150%;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
   letter-spacing: 0.015625rem;
 }
 
@@ -142,6 +148,26 @@
 
 .TagCard-Box {
   position: relative;
+  width: 9.375rem;
+  height: 9.375rem;
   border-radius: .625rem;
   background-color: var(--secondary-black);
+}
+
+@media (max-width: 375px) {
+  .TagCard {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .TagCard-text {
+    text-align: left;
+    /* margin: .375rem .75rem; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    letter-spacing: 0.015625rem;
+  }
 }
