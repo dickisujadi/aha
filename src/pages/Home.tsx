@@ -74,17 +74,16 @@ export function Home({onChangeLoaded} : HomeProps) {
 
     return (
         <div className="flex flex-row h-fit w-screen">
-
-            <div className="xs:mx-5 sm:mx-5 mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
+            <div className="xs:mx-5 xs:my-0 sm:mx-5 mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
                 {isHomeActive ? (
                     <>
-                        <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]">search</p>
+                        <p className="text-2xl text-left capitalize leading-9 my-[1.25rem] xs:mt-0">search</p>
 
                         <div>
                             <SearchBar onChange={changeKeywordsHandler} text={keywords}/>
                         </div>
         
-                        <div className="py-[1.875rem] mb-[20.9375rem]">
+                        <div className="py-[1.875rem] mb-[20.9375rem] xs:mb-[18.625rem]">
                             <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
         
                             <div className="flex flex-row">
@@ -103,13 +102,9 @@ export function Home({onChangeLoaded} : HomeProps) {
                 ):
                     <Search onChangePage={goHomeHandler} pageSize={pageSize} keywords={keywords}/>
                 }
-                
-
             </div>
 
-
-
-            <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block 2xl:h-screen 2xl:max-h-full 2xl:min-h-full">
+            <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block 2xl:h-screen 2xl:max-h-full 2xl:min-h-full xs:hidden">
                 <Profiles users={users} tabIndex={activeTabIndex} onChange={tabChangeHandler} />
             </div>
 
