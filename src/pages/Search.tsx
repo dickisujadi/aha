@@ -31,12 +31,12 @@ export function Search({ onChangePage, keywords, pageSize }: SearchProps) {
     }
 
     return (
-        <div className="flex flex-col w-full h-fit mt-[2.125rem]">
-            <div className="-ml-[2.375rem] my-6 table">
+        <div className="flex flex-col w-full h-fit mt-[2.125rem] xs:mt-0">
+            <div className="-ml-[2.375rem] my-6 table xs:mt-0">
                 <div onClick={onChangePage} style={{cursor: 'pointer'}} className="align-middle table-cell w-1 h-fit">
                     <ArrowBackIosIcon /> 
                 </div>
-                <h1 className="font-normal text-3xl leading-[2.8125rem] ml-5 text-left">Results</h1>
+                <h1 className="font-normal text-3xl leading-[2.8125rem] ml-5 text-left Xs-text">Results</h1>
             </div>
             <div className="flex flex-row -mx-[.8125rem] flex-wrap">
                 {data && data.slice(0, dataPerPage).map(item => {

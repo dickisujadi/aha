@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Header } from "../components/Header";
 import { Tag } from "../typings";
 import TagCard from "../ui/TagCard";
 import requests from "../utilities/requests";
@@ -22,6 +23,7 @@ export function Tags({ onChangeLoaded } : TagsProps) {
 
     return (
         <div className="TagCard">
+            <Header />
             <p className="TagCard-text">Tags</p>
             <div className="flex flex-row flex-wrap">
                 {tags && tags.length ? tags.map(data => {
