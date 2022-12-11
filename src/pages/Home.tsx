@@ -106,7 +106,7 @@ export function Home({onChangeLoaded} : HomeProps) {
                     }
                 </div>
 
-                <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block 2xl:h-screen 2xl:max-h-full 2xl:min-h-full xs:hidden">
+                <div className="invisible w-0 2xl:visible 2xl:w-4/12 2xl:block 2xl:h-screen 2xl:max-h-full 2xl:min-h-full xs:invisible">
                     <Profiles users={users} tabIndex={activeTabIndex} onChange={tabChangeHandler} />
                 </div>
 

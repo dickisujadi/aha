@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import { COLORS } from '../constants/colors';
 
 interface StateProps {
     text: string
@@ -15,7 +16,7 @@ const theme = createTheme({
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
-            color: '#FFFFFF',
+            color: COLORS.pb_white,
             margin: 0,
             borderRadius: 6,
             "& .MuiOutlinedInput-notchedOutline": {
@@ -28,7 +29,7 @@ const theme = createTheme({
             },
             "&.Mui-focused": {
               "& .MuiOutlinedInput-notchedOutline": {
-                border: `3px solid #FF9B33`
+                border: `3px solid ${COLORS.line_grey}`
               },
             }
           },

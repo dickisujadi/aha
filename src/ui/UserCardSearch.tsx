@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Skeleton } from "@mui/material";
 import { User } from "../typings";
 import { BrokenImageHandler } from "../utilities/BrokenImageHandler";
+import { COLORS } from "../constants/colors";
 
 interface UserCardProps {
     user: User,
@@ -31,7 +32,7 @@ function UserCard({ user } : UserCardProps) {
                 <p className="text-left font-normal text-[.93125rem] tracking-[.00873rem]">
                     This is {user.name}
                 </p>
-                <p className="text-left font-normal text-[.93125rem] text-[#B2B2B2] tracking-[.02328125rem] ">
+                <p className={`text-left font-normal text-[.93125rem] text-[${COLORS.text_grey}] tracking-[.02328125rem]`}>
                     by {user.username}
                 </p>
             </div>
@@ -48,7 +49,7 @@ export function UserCardLoading() {
 
             <div className="my-4">
                 <Skeleton variant="text" sx={{ fontSize: '.93125rem' }}/>
-                <Skeleton variant="text" sx={{ fontSize: '.93125rem', color: '#B2B2B2'}}/>
+                <Skeleton variant="text" sx={{ fontSize: '.93125rem', color: COLORS.text_grey}}/>
             </div>
         </div>
     )

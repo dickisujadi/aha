@@ -27,7 +27,7 @@ function OutlinedButton({ content, onButtonClick, position } : OutlinedButtonPro
                     }
                 }}
             >
-                <p className="capitalize text-xs leading-none font-semibold flex-none text-center my-[.375rem]">{content}</p> 
+                <p className="Button-text">{content}</p> 
             </Button>
         </div>
     )

@@ -26,9 +26,8 @@ function ContainedButton({ content, onButtonClick, position } : ContainedButtonP
                     }
                 }}
                 variant="contained"
-                
             >
-                <p className="capitalize text-xs leading-none font-semibold flex-none text-center my-[.375rem]">{content}</p> 
+                <p className="Button-text">{content}</p> 
             </Button>
         </div>
     )

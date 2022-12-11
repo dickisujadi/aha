@@ -26,7 +26,7 @@ function PrimaryButton({ content, onButtonClick } : PrimaryButtonProps) {
                     }
                 }}
             >
-                <span className="font-bold not-italic text-sm leading-[100%] uppercase mx-4 my-[.40625rem]">{content}</span> 
+                <span className="font-bold not-italic text-sm leading-[100%] uppercase mx-4 my-[.40625rem] font-['Ubuntu']">{content}</span> 
             </Button>
         </div>
     )

@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { COLORS } from "../constants/colors";
 import Active from "./../assets/active.svg";
 import Inactive from "./../assets/inactive.svg";
 
@@ -18,7 +19,7 @@ export default function GetLogo({ location, isLoaded, isFooter}: GetLogoProps) {
     return (
         <div className="mb-4 min-h-[3rem]">
             <div className="items-center flex flex-col">
-                {<div className={`h-[0.3125rem] w-[0.3125rem] ${!isLoaded && 'bg-[#00D1FF]'} rounded-full float-right ml-6`}></div>}
+                {<div className={`h-[0.3125rem] w-[0.3125rem] ${!isLoaded && `bg-[${COLORS.blue_notif}]`} rounded-full float-right ml-6`}></div>}
                 <img src={isActive? Active : Inactive} alt="active" className="mx-auto"/>
             </div>
             {isActive && !isFooter && <p className="capitalize font-normal text-xs leading-[1.125rem] tracking-wide">{location}</p>}

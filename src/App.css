@@ -119,11 +119,18 @@
   padding-right: 0.625rem;
   line-height: 2.25rem;
   position: absolute;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: .875rem;
+  line-height: 150%;
+
+  text-transform: capitalize;
+
 }
 
 .TagCard-textName {
   width: 9.375rem;
-  /* font-family: 'Ubuntu'; */
   font-style: normal;
   font-weight: 400;
   font-size: .93125rem;
@@ -189,4 +196,14 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+}
+
+.Button-text {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: capitalize;
+  font-size: .75rem;
+  line-height: 1;
+  font-weight: 600;
+  text-align: center;
+  margin: .375rem 0;
 }
