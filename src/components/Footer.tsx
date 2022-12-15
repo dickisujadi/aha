@@ -15,7 +15,7 @@ interface FooterProps{
 
 export function Footer({ menus, onChangeLoaded } : FooterProps) {
     return (
-        <div className={`xs:w-full xs:fixed left-0 bottom-0 xs:bg-[${COLORS.bg_grey}] shadow-current`}>
+        <div className={`z-50 xs:w-full xs:fixed left-0 bottom-0 xs:bg-[#1B1B1B] shadow-current`}>
             <div className="hidden xs:flex xs:flex-row xs:m-0 xs:h-fit xs:w-fit xs:mx-auto">
                 {menus && menus.length && menus.map(menu => {
                     return <div key={menu.id} onClick={() => onChangeLoaded(menu.location, true)} className='mx-[1.5625rem]'>

@@ -11,8 +11,8 @@ interface UserCardProps {
 function UserCard({ user } : UserCardProps) {
     const [isImageLoading, setIsImageLoading] = useState<boolean>(true)
     return (
-        <div className="flex flex-col mx-[.8125rem]">
-            <div className="w-[13.6875rem] h-[9.125rem]">
+        <div className="flex flex-col mx-[.8125rem] xs:w-full">
+            <div className="w-[13.6875rem] h-[9.125rem] xs:w-full xs:h-[25vh]">
                 {isImageLoading&&<Skeleton variant="rounded" width={"100%"} height={"100%"} animation="wave"/> }
                 <img 
                     src={`${user.avater}`} 

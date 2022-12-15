@@ -79,14 +79,16 @@ export function Home({onChangeLoaded} : HomeProps) {
                 <div className="xs:mx-5 xs:my-0 sm:mx-5 mx-[8.125rem] mt-[2.125rem] w-full 2xl:w-8/12">
                     {isHomeActive ? (
                         <>
-                            <p className="text-2xl text-left capitalize leading-9 my-[1.25rem] xs:mt-0">search</p>
+                            <p className="text-2xl text-left capitalize leading-9 mt-[1.25rem] xs:mt-0">search</p>
 
-                            <div>
+                            <div className="my-[1.875rem]">
                                 <SearchBar onChange={changeKeywordsHandler} text={keywords}/>
                             </div>
-            
-                            <div className="py-[1.875rem] mb-[20.9375rem] xs:mb-[18.625rem]">
-                                <p className="text-2xl text-left capitalize leading-9 my-[1.25rem]"># of results per page</p>
+
+                            <hr className="border rounded-[5px] border-white opacity-10"/>
+                            {/* <div className="mb-[20.9375rem] xs:mb-[18.625rem]"> */}
+                            <div className="my-[1.875rem] xs:mb-[25vh]">
+                                <p className="text-2xl text-left capitalize leading-9 mb-[1.25rem]"># of results per page</p>
             
                                 <div className="flex flex-row">
                                     <p className="text-5xl text-left leading-[4.5rem] font-bold">{pageSize} <span className="text-base leading-6 font-normal gap-2">results</span></p>
@@ -96,8 +98,10 @@ export function Home({onChangeLoaded} : HomeProps) {
                                     <SliderComponent onSliderChange={sliderChangeHandler}/>
                                 </div>
                             </div>
+
+                            <hr className="border rounded-[5px] border-white opacity-10"/>
             
-                            <div className="w-6/12 xs:w-full">
+                            <div className="w-6/12 xs:w-full mt-[35vh] xs:mt-[10vh]">
                                 <PrimaryButton content="search" onButtonClick={goSearchHandler}/>
                             </div>
                         </>
