@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Skeleton } from "@mui/material";
 import { User } from "../typings";
-import { BrokenImageHandler } from "../utilities/BrokenImageHandler";
+import { BrokenImageHandler } from "../utilities/brokenImageHandler";
 import { COLORS } from "../constants/colors";
 
 interface UserCardProps {

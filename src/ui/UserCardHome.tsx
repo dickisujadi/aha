@@ -1,7 +1,7 @@
 import { User } from "../typings";
 import ContainedButton from "./containedButton";
 import OutlinedButton from "./outlinedButton";
-import { BrokenImageHandler } from "../utilities/BrokenImageHandler";
+import { BrokenImageHandler } from "../utilities/brokenImageHandler";
 
 interface UserCardProps {
     user: User
