@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { COLORS } from "../constants/colors";
-import GetLogo from "../ui/SidebarLogo";
+import GetLogo from "../ui/sidebarLogo";
 
 interface menu {
     id: number,

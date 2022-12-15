@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { User } from "../typings"
-import PrimaryButton from "../ui/PrimaryButton";
-import SearchBar from "../ui/SearchBar";
-import SliderComponent from "../ui/SliderComponent";
+import PrimaryButton from "../ui/primaryButton";
+import SearchBar from "../ui/searchBar";
+import SliderComponent from "../ui/sliderComponent";
 import requests from "../utilities/requests";
-import { Profiles } from "../components/Profiles";
-import { Search } from "./Search";
-import { Header } from "../components/Header";
+import { Profiles } from "../components/profiles";
+import { Search } from "./search";
+import { Header } from "../components/header";
 
 interface HomeProps {
     onChangeLoaded: (location: string, status: boolean) => void

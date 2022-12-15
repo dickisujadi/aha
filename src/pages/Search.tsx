@@ -1,12 +1,8 @@
-import { Link } from "react-router-dom";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import bay from "../assets/bay.png";
-import deer from "../assets/deer.png";
-import dog from "../assets/dog.png";
-import PrimaryButton from "../ui/PrimaryButton";
+import PrimaryButton from "../ui/primaryButton";
 import { useEffect, useState } from "react";
 import { User } from "../typings";
-import UserCard, { UserCardLoading } from "../ui/UserCardSearch";
+import UserCard, { UserCardLoading } from "../ui/userCardSearch";
 
 interface SearchProps{
     keywords: string,

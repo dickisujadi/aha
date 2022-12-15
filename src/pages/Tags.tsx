@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Header } from "../components/Header";
+import { Header } from "../components/header";
 import { Tag } from "../typings";
-import TagCard, { TagCardLoading } from "../ui/TagCard";
+import TagCard, { TagCardLoading } from "../ui/tagCard";
 import requests from "../utilities/requests";
 
 interface TagsProps {

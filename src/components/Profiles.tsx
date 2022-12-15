@@ -1,5 +1,5 @@
 import { User } from "../typings";
-import UserCard from "../ui/UserCardHome";
+import UserCard from "../ui/userCardHome";
 import { COLORS } from "../constants/colors";
 import Tabs from "@mui/material/Tabs";
 import Tab from '@mui/material/Tab';

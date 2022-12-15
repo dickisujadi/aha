@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Footer } from '../components/Footer';
-import { Sidebar } from '../components/Sidebar';
-import { Home } from './Home';
-import { Tags } from './Tags';
+import { Footer } from '../components/footer';
+import { Sidebar } from '../components/sidebar';
+import { Home } from './home';
+import { Tags } from './tags';
 
 export function Dashboard() {
     const [menus, setMenus] = useState([
